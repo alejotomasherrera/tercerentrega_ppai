@@ -21,10 +21,13 @@ public class PreguntaEntity {
 
     @ManyToMany
     @JoinTable(name = "pregunta_respuestaPosible"
-            , joinColumns = @jakarta.persistence.JoinColumn(name = "id_pregunta")
-            , inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "id_respuestaPosible")
+            , joinColumns = @JoinColumn(name = "id_pregunta")
+            , inverseJoinColumns = @JoinColumn(name = "id_respuestaPosible")
     )
     private List<RespuestaPosibleEntity> respuestasPosibles;
+
+    @ManyToMany(mappedBy = "preguntas")
+    private List<EncuestaEntity> encuestas;
 
 
 

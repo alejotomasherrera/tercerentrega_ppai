@@ -12,6 +12,8 @@ module com.example.tercerentrega_ppai {
     requires com.almasb.fxgl.all;
     requires jakarta.persistence;
     requires lombok;
+    requires spring.data.jpa;
+    requires spring.context;
 
     opens com.example.tercerentrega_ppai to javafx.fxml;
     exports com.example.tercerentrega_ppai;

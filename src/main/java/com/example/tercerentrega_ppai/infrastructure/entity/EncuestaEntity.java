@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,6 +20,14 @@ public class EncuestaEntity {
     @Column(name = "fecha_vigencia_fin")
     private Date fechaVigenciaFin;
 
-    @Column(name = "")
+    @Column(name = "descripcion")
+    private String descripcion;
+
+    @ManyToMany
+    @JoinTable(name = "encuesta_pregunta"
+            , joinColumns = @JoinColumn(name = "id_encuesta")
+            , inverseJoinColumns = @JoinColumn(name = "id_pregunta")
+    )
+    private List<PreguntaEntity> preguntas;
 
 }
