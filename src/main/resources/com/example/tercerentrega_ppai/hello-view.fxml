@@ -1,16 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.tercerentrega_ppai.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+<VBox alignment="CENTER" prefHeight="811.0" prefWidth="876.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tercerentrega_ppai.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Pane prefHeight="155.0" prefWidth="836.0" style="-fx-border-color: #000000;" styleClass="#000000" VBox.vgrow="ALWAYS">
+         <children>
+            <Text layoutY="32.0" stroke="#0d0d0d" strokeWidth="0.0" text="Consulta encuesta de Llamada" textAlignment="CENTER" underline="true" wrappingWidth="383.9830722808838">
+               <font>
+                  <Font name="Arial" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="86.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Desde" />
+            <Text layoutX="361.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Hasta" />
+            <DatePicker layoutX="35.0" layoutY="75.0" />
+            <DatePicker layoutX="320.0" layoutY="75.0" />
+            <Button layoutX="600.0" layoutY="58.0" mnemonicParsing="false" text="Consultar Llamadas" />
+         </children>
+      </Pane>
+      <Pane prefHeight="188.0" prefWidth="828.0" style="-fx-border-color: #000000;" VBox.vgrow="ALWAYS">
+         <children>
+            <Text layoutY="23.0" stroke="#0d0d0d" strokeWidth="0.0" text="Llamadas encontradas dentro del periodo" textAlignment="CENTER" underline="true" wrappingWidth="496.9830722808838">
+               <font>
+                  <Font name="Arial" size="26.0" />
+               </font>
+            </Text>
+            <TableView layoutX="14.0" layoutY="45.0" prefHeight="138.0" prefWidth="497.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="DNI" />
+                <TableColumn prefWidth="75.0" text="Cliente" />
+              </columns>
+            </TableView>
+            <Button layoutX="602.0" layoutY="72.0" mnemonicParsing="false" text="Seleccionar Llamada" />
+         </children>
+      </Pane>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000000;">
+         <children>
+            <Text layoutX="12.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Datos de la llamada" underline="true">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="12.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente:" underline="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Label layoutX="113.0" layoutY="49.0" text="DNI:" />
+            <Label layoutX="29.0" layoutY="89.0" text="Nombre Completo:" />
+            <Label layoutX="47.0" layoutY="127.0" text="Numero celular:" />
+            <Text layoutX="459.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado Actual" underline="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField layoutX="166.0" layoutY="46.0" />
+            <TextField layoutX="166.0" layoutY="85.0" />
+            <TextField layoutX="166.0" layoutY="123.0" />
+            <TextField layoutX="583.0" layoutY="45.0" />
+            <Text layoutX="394.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duracion de la llamada" underline="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField layoutX="583.0" layoutY="119.0" />
+         </children>
+      </Pane>
+      <SplitPane dividerPositions="0.7733812949640287" prefHeight="223.0" prefWidth="836.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="208.0" prefWidth="536.0">
+               <children>
+                  <TableView layoutX="4.0" layoutY="34.0" prefHeight="160.0" prefWidth="450.0">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="Pregunta" />
+                        <TableColumn prefWidth="75.0" text="Respuesta" />
+                     </columns>
+                  </TableView>
+                  <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Encuesta realizada" underline="true">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="477.0" layoutY="114.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="119.0" text="Generar CSV" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="208.0" prefWidth="340.0">
+               <children>
+                  <Button layoutX="39.0" layoutY="114.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="108.0" text="Cancelar" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
 </VBox>
