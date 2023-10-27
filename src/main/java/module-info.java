@@ -10,6 +10,8 @@ module com.example.tercerentrega_ppai {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires jakarta.persistence;
+    requires lombok;
 
     opens com.example.tercerentrega_ppai to javafx.fxml;
     exports com.example.tercerentrega_ppai;
