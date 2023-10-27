@@ -4,12 +4,16 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
 public class RespuestaPosibleEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_respuesta_posible")
     private Long id;
 
     @Column(name = "descripcion")
@@ -18,12 +22,7 @@ public class RespuestaPosibleEntity {
     @Column(name = "valor")
     private Long valor;
 
-    @ManyToMany
-    @JoinTable(
-            name = "pregunta_respuesta_posible",
-            joinColumns = @JoinColumn(name = "id_respuesta_posible"),
-            inverseJoinColumns = @JoinColumn(name = "id_pregunta")
-    )
-    private PreguntaEntity pregunta;
+    @ManyToMany(mappedBy = "respuestasPosibles")
+    private List<PreguntaEntity> preguntas;
 
 }
