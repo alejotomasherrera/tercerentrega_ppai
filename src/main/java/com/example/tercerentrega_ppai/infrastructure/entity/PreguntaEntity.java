@@ -17,6 +17,7 @@ public class PreguntaEntity {
     @Column(name = "id_pregunta")
     private Long id;
 
+    @Column(name = "pregunta")
     private String pregunta;
 
     @ManyToMany
